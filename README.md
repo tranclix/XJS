@@ -309,8 +309,8 @@ x.pf(val);
 
 **`sp()`**
 
-Split string. Arguments: `[string(optional), char(optional), index(optional)]`.
-- if no arguments are given, returns an `array` consisting of all characters of the string.
+Split string. Arguments: `[string, char(optional), index(optional)]`.
+- if only `string` argument is given, returns an `array` consisting of all characters of the string.
 - if `index` is given, returns the substring / character at that index after split operation is done.
 - if `index` is not given, returns an array with all substrings / characters after splitting at the character provided.
 
