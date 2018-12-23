@@ -1,4 +1,4 @@
-# WHAT
+# XJS
 **XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time.
 
 # WHY
