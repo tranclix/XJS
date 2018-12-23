@@ -253,10 +253,10 @@ const x = Object.freeze({
 
     },
 
-    ri: function(min, max) {
+    ri: function(min, max) {    // generate random integer
         min = this.pi(min);
         max = this.pi(max);
-        return (Math.floor(Math.random() * (max - min + 1)) + min).toFixed(0);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     },
 
     jp: function(_m) { // JSON parse
