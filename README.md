@@ -1,8 +1,8 @@
 # XJS
-**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time.
+**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time. It has **no dependencies**.
 
 # WHY
-To speed up and simplify your code writing. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gt()` than `(new Date).getTime()`? Or `x.cl(var)` than `console.log(var)`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
+To speed up and simplify your code writing, especially if your project makes a heavy use of `localStorage`. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gt()` than `(new Date).getTime()`? Or `x.cl(var)` than `console.log(var)`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
 
 # TIPS
 * **DO NOT** use the variable name `x` anywhere else in your code, even inside loops. This might not be necessary, but it is always better to be safe than be sorry.
@@ -357,9 +357,46 @@ x.cl(val);
 > `x.cl('hello!')` outputs 'hello!' in the console.
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Before adding any method, ask yourself:
+* Is it really necessary?
+* Will it be used often by a coder?
+* Does it provide a big advantage over the original way?
+* Does it actually takes away some pain from writing heavy code?
+
+Keep in mind:
+* Make a method name precise and no more than 4 characters long.
+* Give proper but brief explanation about it in the documentation. Give an example if necessary.
+* Follow the format above.
+* Make **absolutely** sure that your addition has no dependency.
+* Size of this library shouldn't be more than ~20KB (after minification).
 
 Please make sure to update tests as appropriate.
 
 ## License
+/* 
+MIT License
+
+Copyright 2018 Devashish Bahri (@tranclix)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
