@@ -419,10 +419,10 @@ x.du("https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B")
 
 Generate unique keys. Helpful to create unique ID's for any items (like user ID's, file ID's, primary keys, etc.). Also very handy to generate unique keys for frameworks like ReactJS. Parameters and options:
 
-    @ lengthOfKey:  (optional) length of single key. integer. `default: 5`
-    @ numberOfKeys: (optional) how many keys to generate? `default: 1`
-    @ joinedByChar: (optional) which char to use to join the keys with? Returns an array of keys if `null` is passed. Otherwise joins them with the provided character and returns a single string. `default: null`
-    @ typeOfKeys:   (optional) `default: '0aA'`
+    @ lengthOfKey:  (optional) default: 5       length of single key. integer. 
+    @ numberOfKeys: (optional) default: 1       how many keys to generate? 
+    @ joinedByChar: (optional) default: null    which char to use to join the keys with? Returns an array of keys if null is passed. Otherwise joins them with the provided character and returns a single string.
+    @ typeOfKeys:   (optional) default: '0aA'
         00 => numbers only. ex: 04278
         0a => numbers + small alphabets. ex: a67s3
         0A => numbers + CAPITAL alphabets. ex: GH67A
