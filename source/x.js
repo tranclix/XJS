@@ -39,8 +39,8 @@ export const x = (function() {
 
 	function _ri(min, max) {
 		// generate random integer
-		min = this._pi(min)
-		max = this._pi(max)
+		min = _pi(min)
+		max = _pi(max)
 		return Math.floor(Math.random() * (max - min + 1)) + min
 	}
 
