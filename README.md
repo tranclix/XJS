@@ -17,49 +17,49 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
 1. [Installation](#installation)
 2. [API](#api)
 3. [localStorage](#localstorage)
-    1. `ls()` => set
-    2. `lg()` => get
-    3. `jls()` => JSON stringify set
-    4. `jlg()` => JSON stringify get
-    5. `lr()` => remove
-    6. `lc()` => check
-    7. `lclr()` => clear
-    8. `lex()` => export
-    9. `lim()` => import
+    1. `ls()` ----- set
+    2. `lg()` ----- get
+    3. `jls()` ----- JSON stringify set
+    4. `jlg()` ----- JSON stringify get
+    5. `lr()` ----- remove
+    6. `lc()` ----- check
+    7. `lclr()` ----- clear
+    8. `lex()` ----- export
+    9. `lim()` ----- import
 4. [sessionStorage](#sessionstorage)
-    1. `ss()` => set
-    2. `sg()` => get
-    3. `jss()` => JSON stringify set
-    4. `jsg()` => JSON stringify get
-    5. `sr()` => remove
-    6. `sc()` => check
-    7. `sclr()` => clear
-    8. `sex()` => export
-    9. `sim()` => import
+    1. `ss()` ----- set
+    2. `sg()` ----- get
+    3. `jss()` ----- JSON stringify set
+    4. `jsg()` ----- JSON stringify get
+    5. `sr()` ----- remove
+    6. `sc()` ----- check
+    7. `sclr()` ----- clear
+    8. `sex()` ----- export
+    9. `sim()` ----- import
 5. [Common Date and Time Functions](#common-date-and-time-functions)
-    1. `gm()` => get month
-    2. `gy()` => get year
-    3. `gdy()` => get day (of week)
-    4. `gdt()` => get date
-    5. `gt()` => get time
-    6. `w2m()` => weeks to ms
-    7. `d2m()` => days to ms
-    8. `h2m()` => hours to ms
-    9. `m2m()` => minutes to ms
-    10. `s2m()` => seconds to ms
+    1. `gm()` ----- get month
+    2. `gy()` ----- get year
+    3. `gdy()` ----- get day (of week)
+    4. `gdt()` ----- get date
+    5. `gt()` ----- get time
+    6. `w2m()` ----- weeks to ms
+    7. `d2m()` ----- days to ms
+    8. `h2m()` ----- hours to ms
+    9. `m2m()` ----- minutes to ms
+    10. `s2m()` ----- seconds to ms
 6. [Other Handy Tools](#other-handy-tools)
-    1. `pi()` => parse Integer
-    2. `pf()` => parse Float
-    3. `ri()` => random integer
-    4. `jp()` => JSON parse
-    5. `js()` => JSON stringify
-    6. `b6e()` => base64 encode
-    7. `b6d()` => base64 decode
-    8. `euc()` => encodeURIComponent
-    9. `eu()` => encodeURI
-    10. `duc()` => decodeURIComponent
-    11. `du()` => decodeURI
-    12. `keyGen()` => generate unique keys
+    1. `pi()` ----- parse Integer
+    2. `pf()` ----- parse Float
+    3. `ri()` ----- random integer
+    4. `jp()` ----- JSON parse
+    5. `js()` ----- JSON stringify
+    6. `b6e()` ----- base64 encode
+    7. `b6d()` ----- base64 decode
+    8. `euc()` ----- encodeURIComponent
+    9. `eu()` ----- encodeURI
+    10. `duc()` ----- decodeURIComponent
+    11. `du()` ----- decodeURI
+    12. `keyGen()` ----- generate unique keys
 7. [Contributing](#contributing)
 8. [License](#license)
 
@@ -423,22 +423,25 @@ Generate unique keys. Helpful to create unique ID's for any items (like user ID'
     @ numberOfKeys: (optional) how many keys to generate? `default: 1`
     @ joinedByChar: (optional) which char to use to join the keys with? Returns an array of keys if `null` is passed. Otherwise joins them with the provided character and returns a single string. `default: null`
     @ typeOfKeys:   (optional) `default: '0aA'`
-        **00** => numbers only. ex: 04278
-        **0a** => numbers + small alphabets. ex: a67s3
-        **0A** => numbers + CAPITAL alphabets. ex: GH67A
-        **aa** => small alphabets only. ex: abywi
-        **AA** => CAPITAL alphabets only. ex: WISLK
-        **aA** => small + CAPITAL alphabets. ex: sAHnS
-        **0aA** => numbers + small + CAPITAL alphabets. ex: b6Hi8
+        00 => numbers only. ex: 04278
+        0a => numbers + small alphabets. ex: a67s3
+        0A => numbers + CAPITAL alphabets. ex: GH67A
+        aa => small alphabets only. ex: abywi
+        AA => CAPITAL alphabets only. ex: WISLK
+        aA => small + CAPITAL alphabets. ex: sAHnS
+        0aA => numbers + small + CAPITAL alphabets. ex: b6Hi8
 
 ```javascript
 x.keyGen(lengthOfKey, numberOfKeys, joinedByChar, typeOfKeys)
 ```
 
-> x.keyGen() => ["6Ve48"]
-> x.keyGen(5, 5) => ["B8J4n", "UDD87", "92y25", "73N54", "3gUGw"]
-> x.keyGen(5, 6, '-') => 0soY3-O2o62-WEhLT-Fo73U-7jD04-9eUb2
-> x.keyGen(3, 8, '\_', '0A') => 54P_5HC_281_507_NF9_736_H88_J39
+> `x.keyGen()` returns `["6Ve48"]`
+
+> `x.keyGen(5, 5)` returns `["B8J4n", "UDD87", "92y25", "73N54", "3gUGw"]`
+
+> `x.keyGen(5, 6, '-')` returns `0soY3-O2o62-WEhLT-Fo73U-7jD04-9eUb2`
+
+> `x.keyGen(3, 8, '\_', '0A')` returns `54P_5HC_281_507_NF9_736_H88_J39`
 
 ## Contributing
 
