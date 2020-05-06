@@ -1,65 +1,78 @@
 # XJS
-**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time. It has **no dependencies**.
+
+**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time.
 
 # WHY
-To speed up and simplify your code writing, especially if your project makes a heavy use of `localStorage`. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gt()` than `(new Date).getTime()`? Or `x.cl(var)` than `console.log(var)`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
+
+To speed up and simplify your code writing. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gt()` than `(new Date).getTime()`? Or `x.cl(var)` than `console.log(var)`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
 
 # TIPS
-* **DO NOT** use the variable name `x` anywhere else in your code, even inside loops. This might not be necessary, but it is always better to be safe than be sorry.
-* Almost all method names are made up of 2-3 letters, with the first letters of the functionality they do. Example: `x.ls` for `l`ocalStorage.`s`etItem,  `x.sg` for `s`essionStorage.`g`etItem, `x.gt` for `g`et`t`ime, `x.pi` for `p`arse`I`nteger, and so on. Once you get a hang of this, it really becomes very obvious and easy to memorize.
+
+-   **DO NOT** use the variable name `x` anywhere else in your code, even inside loops. This might not be necessary, but it is always better to be safe than be sorry.
+-   Almost all method names are made up of 2-3 letters, with the first letters of the functionality they do. Example: `x.ls` for `l`ocalStorage.`s`etItem, `x.sg` for `s`essionStorage.`g`etItem, `x.gt` for `g`et`t`ime, `x.pi` for `p`arse`I`nteger, and so on. Once you get a hang of this, it really becomes very obvious and easy to memorize.
+-   It is written in ES6. Can be imported using `default` `import`.
 
 # Contents
+
 1. [Installation](#installation)
 2. [API](#api)
-  1. [localStorage](#localstorage)
-     1. `ls()`
-     2. `lg()`
-     3. `jls()`
-     4. `jlg()`
-     5. `lr()`
-     6. `lc()`
-     7. `lss()`
-     8. `lclr()`
-     9. `lex()`
-     10. `lim()`
-  2. [sessionStorage](#sessionstorage)
-     1. `ss()`
-     2. `sg()`
-     3. `jss()`
-     4. `jsg()`
-     5. `sr()`
-     6. `sc()`
-     7. `sss()`
-     8. `sclr()`
-     9. `sex()`
-     10. `sim()`
-  3. [Common Date and Time Functions](#common-date-and-time-functions)
-     1. `gm()`
-     2. `gy()`
-     3. `gdy()`
-     4. `gdt()`
-     5. `gt()`
-     6. `hms()`
-     7. `mms()`
-  3. [Other Handy Tools](#other-handy-tools)
-     1. `pi()`
-     2. `pf()`
-     3. `sp()`
-     4. `ri()`
-     5. `jp()`
-     6. `js()`
-     7. `cl()`
-3. [Contributing](#contributing)
-4. [License](#license)
-
+3. [localStorage](#localstorage)
+    1. `ls()` => set
+    2. `lg()` => get
+    3. `jls()` => JSON stringify set
+    4. `jlg()` => JSON stringify get
+    5. `lr()` => remove
+    6. `lc()` => check
+    7. `lclr()` => clear
+    8. `lex()` => export
+    9. `lim()` => import
+4. [sessionStorage](#sessionstorage)
+    1. `ss()` => set
+    2. `sg()` => get
+    3. `jss()` => JSON stringify set
+    4. `jsg()` => JSON stringify get
+    5. `sr()` => remove
+    6. `sc()` => check
+    7. `sclr()` => clear
+    8. `sex()` => export
+    9. `sim()` => import
+5. [Common Date and Time Functions](#common-date-and-time-functions)
+    1. `gm()` => get month
+    2. `gy()` => get year
+    3. `gdy()` => get day (of week)
+    4. `gdt()` => get date
+    5. `gt()` => get time
+    6. `w2m()` => weeks to ms
+    7. `d2m()` => days to ms
+    8. `h2m()` => hours to ms
+    9. `m2m()` => minutes to ms
+    10. `s2m()` => seconds to ms
+6. [Other Handy Tools](#other-handy-tools)
+    1. `pi()` => parse Integer
+    2. `pf()` => parse Float
+    3. `ri()` => random integer
+    4. `jp()` => JSON parse
+    5. `js()` => JSON stringify
+    6. `b6e()` => base64 encode
+    7. `b6d()` => base64 decode
+    8. `euc()` => encodeURIComponent
+    9. `eu()` => encodeURI
+    10. `duc()` => decodeURIComponent
+    11. `du()` => decodeURI
+    12. `keyGen()` => generate unique keys
+7. [Contributing](#contributing)
+8. [License](#license)
 
 # Installation
+
 Include a copy of `x.min.js` into your project and put this code line in your document `head`. Make sure you enter the correct path to the `x.min.js` file.
 
 ```javascript
-<script type="text/javascript" src="x.min.js"></script>
+<script type="text/javascript" src="x.min.js" />
 ```
+
 # API
+
 ## localStorage
 
 **`ls()`**
@@ -67,7 +80,7 @@ Include a copy of `x.min.js` into your project and put this code line in your do
 Set an item in `localStorage`.
 
 ```javascript
-x.ls(key, value);
+x.ls(key, value)
 ```
 
 **`lg()`**
@@ -75,7 +88,7 @@ x.ls(key, value);
 Get an item from `localStorage`.
 
 ```javascript
-x.lg(key);
+x.lg(key)
 ```
 
 **`jls()`**
@@ -83,7 +96,7 @@ x.lg(key);
 Set an item in `localStorage` with `JSON stringify`.
 
 ```javascript
-x.jls(key, value);
+x.jls(key, value)
 ```
 
 **`jlg()`**
@@ -91,7 +104,7 @@ x.jls(key, value);
 Get an item from `localStorage` with `JSON parse`.
 
 ```javascript
-x.jlg(key);
+x.jlg(key)
 ```
 
 **`lr()`**
@@ -99,7 +112,7 @@ x.jlg(key);
 Remove an item from `localStorage`.
 
 ```javascript
-x.lr(key);
+x.lr(key)
 ```
 
 **`lc()`**
@@ -107,15 +120,7 @@ x.lr(key);
 Check if an item exists in `localStorage`. Returns `true` or `false`.
 
 ```javascript
-x.lc(key);
-```
-
-**`lss()`**
-
-Calculate the total size of `localStorage`. Returns size in KB as a `string`. *Example: 108 KB*
-
-```javascript
-x.lss();
+x.lc(key)
 ```
 
 **`lclr()`**
@@ -123,7 +128,7 @@ x.lss();
 Clear entire `localStorage`.
 
 ```javascript
-x.lclr();
+x.lclr()
 ```
 
 **`lex()`**
@@ -131,7 +136,7 @@ x.lclr();
 Export entire `localStorage` as a JSON string. Returns a string.
 
 ```javascript
-x.lex();
+x.lex()
 ```
 
 **`lim()`**
@@ -139,9 +144,8 @@ x.lex();
 Import data to `localStorage` from a JSON string generated by the **`lex()`** method (above).
 
 ```javascript
-x.lim(string);
+x.lim(string)
 ```
-
 
 ## sessionStorage
 
@@ -150,7 +154,7 @@ x.lim(string);
 Set an item in `sessionStorage`.
 
 ```javascript
-x.ss(key, value);
+x.ss(key, value)
 ```
 
 **`sg()`**
@@ -158,7 +162,7 @@ x.ss(key, value);
 Get an item from `sessionStorage`.
 
 ```javascript
-x.sg(key);
+x.sg(key)
 ```
 
 **`jss()`**
@@ -166,7 +170,7 @@ x.sg(key);
 Set an item in `sessionStorage` with `JSON stringify`.
 
 ```javascript
-x.jss(key, value);
+x.jss(key, value)
 ```
 
 **`jsg()`**
@@ -174,7 +178,7 @@ x.jss(key, value);
 Get an item from `sessionStorage` with `JSON parse`.
 
 ```javascript
-x.jsg(key);
+x.jsg(key)
 ```
 
 **`sr()`**
@@ -182,7 +186,7 @@ x.jsg(key);
 Remove an item from `sessionStorage`.
 
 ```javascript
-x.sr(key);
+x.sr(key)
 ```
 
 **`sc()`**
@@ -190,15 +194,7 @@ x.sr(key);
 Check if an item exists in `sessionStorage`. Returns `true` or `false`.
 
 ```javascript
-x.sc(key);
-```
-
-**`sss()`**
-
-Calculate the total size of `sessionStorage`. Returns size in KB as a `string`. *Example: 50 KB*
-
-```javascript
-x.sss();
+x.sc(key)
 ```
 
 **`sclr()`**
@@ -206,7 +202,7 @@ x.sss();
 Clear entire `sessionStorage`.
 
 ```javascript
-x.sclr();
+x.sclr()
 ```
 
 **`sex()`**
@@ -214,7 +210,7 @@ x.sclr();
 Export entire `sessionStorage` as a JSON string. Returns a string.
 
 ```javascript
-x.sex();
+x.sex()
 ```
 
 **`sim()`**
@@ -222,9 +218,8 @@ x.sex();
 Import data to `sessionStorage` from a JSON string generated by the **`sex()`** method (above).
 
 ```javascript
-x.sim(string);
+x.sim(string)
 ```
-
 
 ## Common Date and Time Functions
 
@@ -233,8 +228,9 @@ x.sim(string);
 Get current month. Returns an integer corresponding to current month in zero-based index form.
 
 ```javascript
-x.gm();
+x.gm()
 ```
+
 > 0 = January, 1 = February, ...and so on till... 11 = December
 
 **`gy()`**
@@ -242,8 +238,9 @@ x.gm();
 Get current year. Returns an integer equal to current year.
 
 ```javascript
-x.gy();
+x.gy()
 ```
+
 > 2017, 2018, etc.
 
 **`gdy()`**
@@ -251,8 +248,9 @@ x.gy();
 Get current day of the week. Returns an integer corresponding to current day of the week in zero-based index form.
 
 ```javascript
-x.gdy();
+x.gdy()
 ```
+
 > 0 = Sunday, 1 = Monday, ...and so on till... 6 = Saturday
 
 **`gdt()`**
@@ -260,8 +258,9 @@ x.gdy();
 Get current date. Returns an integer equal to current date.
 
 ```javascript
-x.gdt();
+x.gdt()
 ```
+
 > 1, 2, 3.... 31, etc.
 
 **`gt()`**
@@ -269,25 +268,50 @@ x.gdt();
 Get current time in `ms` (milliseconds). Returns an integer equal to the current UNIX time.
 
 ```javascript
-x.gt();
+x.gt()
 ```
+
 > 1545565982379
 
-**`hms()`**
+**`w2m()`**
+
+Convert weeks into milliseconds.
+
+```javascript
+x.w2m(weeks)
+```
+
+**`d2m()`**
+
+Convert days into milliseconds.
+
+```javascript
+x.d2m(days)
+```
+
+**`h2m()`**
 
 Convert hours into milliseconds.
 
 ```javascript
-x.hms(hours);
+x.h2m(hours)
 ```
-**`mms()`**
+
+**`m2m()`**
 
 Convert minutes into milliseconds.
 
 ```javascript
-x.mms(hours);
+x.m2m(minutes)
 ```
 
+**`s2m()`**
+
+Convert seconds into milliseconds.
+
+```javascript
+x.s2m(seconds)
+```
 
 ## Other Handy Tools
 
@@ -296,7 +320,7 @@ x.mms(hours);
 Parse integer. Can be useful when converting a string number to integer.
 
 ```javascript
-x.pi(val);
+x.pi(val)
 ```
 
 **`pf()`**
@@ -304,31 +328,15 @@ x.pi(val);
 Parse float. Can be useful when converting a string decimal to float.
 
 ```javascript
-x.pf(val);
+x.pf(val)
 ```
-
-**`sp()`**
-
-Split string. Arguments: `[string, char(optional), index(optional)]`.
-- if only `string` argument is given, returns an `array` consisting of all characters of the string.
-- if `index` is given, returns the substring / character at that index after split operation is done.
-- if `index` is not given, returns an array with all substrings / characters after splitting at the character provided.
-
-```javascript
-x.sp(val);
-```
-> `x.sp('hello world!', ' ', [0])` returns `'hello'`.
-
-> `x.sp('hello world!', ' ')` returns `['hello', 'world!']`.
-
-> `x.sp('hello world!')` returns `['h','e','l','l','o',' ','w','o','r','l','d','!']`.
 
 **`ri()`**
 
 Generate a random integer between two specified integers (inclusive of both).
 
 ```javascript
-x.ri(min, max);
+x.ri(min, max)
 ```
 
 **`jp()`**
@@ -336,7 +344,7 @@ x.ri(min, max);
 `JSON parse` the passed value / argument.
 
 ```javascript
-x.jp(val);
+x.jp(val)
 ```
 
 **`js()`**
@@ -344,59 +352,100 @@ x.jp(val);
 `JSON stringify` the passed value / argument.
 
 ```javascript
-x.js(val);
+x.js(val)
 ```
 
-**`cl()`**
+**`b6e()`**
 
-Console log.
+base64 encode. `btoa()` the passed value.
 
 ```javascript
-x.cl(val);
+x.b6e("hello")
 ```
-> `x.cl('hello!')` outputs 'hello!' in the console.
+
+> aGVsbG8=
+
+**`b6d()`**
+
+base64 decode. `atob()` the passed value.
+
+```javascript
+x.b6d("aGVsbG8=")
+```
+
+> hello
+
+**`euc()`**
+
+`encodeURIComponent` the passed value / argument.
+
+```javascript
+x.euc("?x=шеллы")
+```
+
+> %3Fx%3D%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+
+**`eu()`**
+
+`encodeURI` the passed value / argument.
+
+```javascript
+x.eu("https://mozilla.org/?x=шеллы")
+```
+
+> https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+
+**`duc()`**
+
+`decodeURIComponent` the passed value / argument.
+
+```javascript
+x.duc("%3Fx%3D%D1%88%D0%B5%D0%BB%D0%BB%D1%8B")
+```
+
+> ?x=шеллы
+
+**`du()`**
+
+`decodeURI` the passed value / argument.
+
+```javascript
+x.du("https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B")
+```
+
+> https://mozilla.org/?x=шеллы
+
+**`keyGen()`**
+
+Generate unique keys. Helpful to create unique ID's for any items (like user ID's, file ID's, primary keys, etc.). Also very handy to generate unique keys for frameworks like ReactJS. Parameters and options:
+
+    @ lengthOfKey:  (optional) length of single key. integer. `default: 5`
+    @ numberOfKeys: (optional) how many keys to generate? `default: 1`
+    @ joinedByChar: (optional) which char to use to join the keys with? Returns an array of keys if `null` is passed. Otherwise joins them with the provided character and returns a single string. `default: null`
+    @ typeOfKeys:   (optional) `default: '0aA'`
+        **00** => numbers only. ex: 04278
+        **0a** => numbers + small alphabets. ex: a67s3
+        **0A** => numbers + CAPITAL alphabets. ex: GH67A
+        **aa** => small alphabets only. ex: abywi
+        **AA** => CAPITAL alphabets only. ex: WISLK
+        **aA** => small + CAPITAL alphabets. ex: sAHnS
+        **0aA** => numbers + small + CAPITAL alphabets. ex: b6Hi8
+
+```javascript
+x.keyGen(lengthOfKey, numberOfKeys, joinedByChar, typeOfKeys)
+```
+
+> x.keyGen() => ["6Ve48"]
+> x.keyGen(5, 5) => ["B8J4n", "UDD87", "92y25", "73N54", "3gUGw"]
+> x.keyGen(5, 6, '-') => 0soY3-O2o62-WEhLT-Fo73U-7jD04-9eUb2
+> x.keyGen(3, 8, '\_', '0A') => 54P_5HC_281_507_NF9_736_H88_J39
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Before adding any method, ask yourself:
-* Is it really necessary?
-* Will it be used often by a coder?
-* Does it provide a big advantage over the original way?
-* Does it actually takes away some pain from writing heavy code?
 
-Keep in mind:
-* Make a method name precise and no more than 4 characters long.
-* Give proper but brief explanation about it in the documentation. Give an example if necessary.
-* Follow the format above.
-* Make **absolutely** sure that your addition has no dependency.
-* Size of this library shouldn't be more than ~20KB (after minification).
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
-/* 
-MIT License
-
-Copyright 2018 Devashish Bahri (@tranclix)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
