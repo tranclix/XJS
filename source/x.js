@@ -292,6 +292,11 @@ export const x = (function() {
 
 		// COMMON DATE / TIME FUNCTIONS (FOR CURRENT DATE ONLY)
 
+		m2d: function(_k) {
+			// ms to date
+			return (new Date(_k))
+		},
+
 		gm: function() {
 			// get month
 			return new Date().getMonth()
@@ -390,5 +395,16 @@ export const x = (function() {
 		},
 
 		keyGen: _keyGen,
+
+		gb: function() {
+			// generate random boolean "true" or "false"
+			return Math.random() >= 0.5
+		},
+
+		ts: function(_k) {
+			// convert to string
+			return _k.toString()
+		},
+
 	}
 })()
