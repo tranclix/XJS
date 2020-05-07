@@ -1,6 +1,6 @@
 # XJS
 
-**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time.
+**XJS** is a small JavaScript library (sort of) which contains a collection of small methods to speed up your code writing, especially focusing on dealing with `localStorage`, `sessionStorage` and date / time. It is written in ES6.
 
 # WHY
 
@@ -67,13 +67,9 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
 
 # Installation
 
-XJS can be imported as a module using `import` keyword. For browsers that do not support ES6 or if you simply want to use ES5 because of some reasons, use `xjs.es5.min.js`. Include it into your project like this:
+XJS can be imported as a module using `import` keyword. Include it into your project like this:
 ```javascript
 import {x} from "./x.min"
-```
-or for ES5, like this:
-```javascript
-<script type="text/javascript" src="x.es5.min.js" />
 ```
 
 # API
