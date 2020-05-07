@@ -69,7 +69,7 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
 
 XJS can be imported as a module using `import` keyword. For browsers that do not support ES6 or if you simply want to use ES5 because of some reasons, use `xjs.es5.min.js`. Include it into your project like this:
 ```javascript
-import {x} from "./x"
+import {x} from "./x.min"
 ```
 or for ES5, like this:
 ```javascript
