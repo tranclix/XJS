@@ -10,7 +10,6 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
 
 -   **DO NOT** use the variable name `x` anywhere else in your code, even inside loops. This might not be necessary, but it is always better to be safe than be sorry.
 -   Almost all method names are made up of 2-3 letters, with the first letters of the functionality they do. Example: `x.ls` for `l`ocalStorage.`s`etItem, `x.sg` for `s`essionStorage.`g`etItem, `x.gt` for `g`et`t`ime, `x.pi` for `p`arse`I`nteger, and so on. Once you get a hang of this, it really becomes very obvious and easy to memorize.
--   It is written in ES6. Can be imported using `default` `import`.
 
 # Contents
 
@@ -47,6 +46,7 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
     8. `h2m()` ----- hours to ms
     9. `m2m()` ----- minutes to ms
     10. `s2m()` ----- seconds to ms
+    11. `m2d()` ----- javascript time to date
 6. [Other Handy Tools](#other-handy-tools)
     1. `pi()` ----- parse Integer
     2. `pf()` ----- parse Float
@@ -60,15 +60,20 @@ To speed up and simplify your code writing. Isn't it just so much more convenien
     10. `duc()` ----- decodeURIComponent
     11. `du()` ----- decodeURI
     12. `keyGen()` ----- generate unique keys
+    13. `ts()` ----- convert to string
+    14. `gb()` ----- generate boolean (true or false)
 7. [Contributing](#contributing)
 8. [License](#license)
 
 # Installation
 
-Include a copy of `x.min.js` into your project and put this code line in your document `head`. Make sure you enter the correct path to the `x.min.js` file.
-
+XJS can be imported as a module using `import` keyword. For browsers that do not support ES6 or if you simply want to use ES5 because of some reasons, use `xjs.es5.min.js`. Include it into your project like this:
 ```javascript
-<script type="text/javascript" src="x.min.js" />
+import {x} from "./x"
+```
+or for ES5, like this:
+```javascript
+<script type="text/javascript" src="x.es5.min.js" />
 ```
 
 # API
@@ -313,6 +318,14 @@ Convert seconds into milliseconds.
 x.s2m(seconds)
 ```
 
+**`m2d()`**
+
+Get date from Javascript time.
+
+```javascript
+x.m2d(js_time)
+```
+
 ## Other Handy Tools
 
 **`pi()`**
@@ -412,8 +425,23 @@ x.duc("%3Fx%3D%D1%88%D0%B5%D0%BB%D0%BB%D1%8B")
 ```javascript
 x.du("https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B")
 ```
-
 > https://mozilla.org/?x=шеллы
+
+**`ts()`**
+
+Convert to string.
+
+```javascript
+x.ts(something)
+```
+
+**`gb()`**
+
+Return a boolean with 50% probability of any one of them. Returns `true` or `false`. Takes no argument.
+
+```javascript
+x.gb()
+```
 
 **`keyGen()`**
 
