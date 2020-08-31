@@ -24,28 +24,28 @@ SOFTWARE.
 
 /*
  *  XJS
- *  version: 1.2.0
- *  date: 5-may-2020 20:56
+ *  version: 1.3.0
+ *  date: 31-aug-2020 14:45
  *  author: tranclix
  */
 
 export const x = (function() {
-	function _pi(_m) {
-		// parse integer
+    function _pi(_m) {
+        // parse integer
 
-		let _a = parseInt(_m)
-		return _a
-	}
+        let _a = parseInt(_m)
+        return _a
+    }
 
-	function _ri(min, max) {
-		// generate random integer
-		min = _pi(min)
-		max = _pi(max)
-		return Math.floor(Math.random() * (max - min + 1)) + min
-	}
+    function _ri(min, max) {
+        // generate random integer
+        min = _pi(min)
+        max = _pi(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
 
-	function _keyGen(lengthOfKey, numberOfKeys, joinedByChar, typeOfKeys) {
-		/*
+    function _keyGen(lengthOfKey, numberOfKeys, joinedByChar, typeOfKeys) {
+        /*
         	@ lengthOfKey: 	(optional) length of single key. integer, default: 5
         	@ numberOfKeys: (optional) how many keys to generate? default: 1
         	@ joinedByChar: (optional) which char to use to join the keys with? default: null => returns an array of keys. otherwise joins them with the provided character.
@@ -59,352 +59,424 @@ export const x = (function() {
 	        	0aA => numbers + small + CAPITAL alphabets. ex: b6Hi8
          */
 
-		typeOfKeys = typeOfKeys ? typeOfKeys : "0aA"
-		numberOfKeys = numberOfKeys ? numberOfKeys : 1
-		lengthOfKey = lengthOfKey ? lengthOfKey : 5
+        typeOfKeys = typeOfKeys ? typeOfKeys : "0aA"
+        numberOfKeys = numberOfKeys ? numberOfKeys : 1
+        lengthOfKey = lengthOfKey ? lengthOfKey : 5
 
-		let charSpace = [
-			"A",
-			"B",
-			"C",
-			"D",
-			"E",
-			"F",
-			"G",
-			"H",
-			"I",
-			"J",
-			"K",
-			"L",
-			"M",
-			"N",
-			"O",
-			"P",
-			"Q",
-			"R",
-			"S",
-			"T",
-			"U",
-			"V",
-			"W",
-			"X",
-			"Y",
-			"Z",
-			"a",
-			"b",
-			"c",
-			"d",
-			"e",
-			"f",
-			"g",
-			"h",
-			"i",
-			"j",
-			"k",
-			"l",
-			"m",
-			"n",
-			"o",
-			"p",
-			"q",
-			"r",
-			"s",
-			"t",
-			"u",
-			"v",
-			"w",
-			"x",
-			"y",
-			"z",
-		]
-		let buffer = []
+        let charSpace = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+        ]
+        let buffer = []
 
-		function _allMixedGen(minIndex, maxIndex) {
-			for (let j = 1; j <= numberOfKeys; j++) {
-				let _temp = []
-				for (let i = 1; i <= lengthOfKey; i++) {
-					let shifter = Math.random() >= 0.5
-					if (shifter) {
-						_temp.push(charSpace[_ri(minIndex, maxIndex)])
-					} else {
-						_temp.push(_ri(0, 9))
-					}
-				}
-				buffer.push(_temp.join(""))
-			}
-		}
+        function _allMixedGen(minIndex, maxIndex) {
+            for (let j = 1; j <= numberOfKeys; j++) {
+                let _temp = []
+                for (let i = 1; i <= lengthOfKey; i++) {
+                    let shifter = Math.random() >= 0.5
+                    if (shifter) {
+                        _temp.push(charSpace[_ri(minIndex, maxIndex)])
+                    } else {
+                        _temp.push(_ri(0, 9))
+                    }
+                }
+                buffer.push(_temp.join(""))
+            }
+        }
 
-		function _alphaGen(minIndex, maxIndex) {
-			for (let j = 1; j <= numberOfKeys; j++) {
-				let _temp = []
-				for (let i = 1; i <= lengthOfKey; i++) {
-					_temp.push(charSpace[_ri(minIndex, maxIndex)])
-				}
-				buffer.push(_temp.join(""))
-			}
-		}
+        function _alphaGen(minIndex, maxIndex) {
+            for (let j = 1; j <= numberOfKeys; j++) {
+                let _temp = []
+                for (let i = 1; i <= lengthOfKey; i++) {
+                    _temp.push(charSpace[_ri(minIndex, maxIndex)])
+                }
+                buffer.push(_temp.join(""))
+            }
+        }
 
-		switch (typeOfKeys) {
-			case "00":
-				for (let j = 1; j <= numberOfKeys; j++) {
-					buffer.push(
-						_ri(
-							Math.pow(10, lengthOfKey - 1),
-							Math.pow(10, lengthOfKey) - 1
-						).toString()
-					)
-				}
-				break
-			case "0a":
-				_allMixedGen(26, 51)
-				break
-			case "0A":
-				_allMixedGen(0, 25)
-				break
-			case "aa":
-				_alphaGen(26, 51)
-				break
-			case "AA":
-				_alphaGen(0, 25)
-				break
-			case "aA":
-				_alphaGen(0, 51)
-				break
-			case "0aA":
-			default:
-				_allMixedGen(0, 51)
-				break
-		}
+        switch (typeOfKeys) {
+            case "00":
+                for (let j = 1; j <= numberOfKeys; j++) {
+                    buffer.push(_ri(Math.pow(10, lengthOfKey - 1), Math.pow(10, lengthOfKey) - 1).toString())
+                }
+                break
+            case "0a":
+                _allMixedGen(26, 51)
+                break
+            case "0A":
+                _allMixedGen(0, 25)
+                break
+            case "aa":
+                _alphaGen(26, 51)
+                break
+            case "AA":
+                _alphaGen(0, 25)
+                break
+            case "aA":
+                _alphaGen(0, 51)
+                break
+            case "0aA":
+            default:
+                _allMixedGen(0, 51)
+                break
+        }
 
-		if (joinedByChar) {
-			return buffer.join(joinedByChar)
-		} else {
-			return buffer
-		}
-	}
-	// LOCAL STORAGE
-	return {
-		ls: function(_k, _v) {
-			// set
-			localStorage.setItem(_k, _v)
-		},
+        if (joinedByChar) {
+            return buffer.join(joinedByChar)
+        } else {
+            return buffer
+        }
+    }
 
-		lg: function(_k) {
-			// get
-			return localStorage.getItem(_k)
-		},
+    function _sizeHelper(where, item) {
+        let type = where === "ls" ? localStorage : sessionStorage
 
-		jls: function(_k, _v) {
-			// JSON set
-			localStorage.setItem(_k, JSON.stringify(_v))
-		},
+        if (!item) {
+            let total = 0
+            for (_x in type) {
+                if (!type.hasOwnProperty(_x)) {
+                    continue
+                }
+                total += (type.getItem(_x).length + _x.length) * 2
+            }
+            return (total / 1024).toFixed(2)
+        } else {
+            if (!type.hasOwnProperty(item)) {
+                return false
+            } else {
+                return (((type.getItem(item).length + item.length) * 2) / 1024).toFixed(2)
+            }
+        }
+    }
 
-		jlg: function(_k) {
-			// JSON get
-			return JSON.parse(localStorage.getItem(_k))
-		},
+    // LOCAL STORAGE
+    return {
+        ls: function(_k, _v) {
+            // set
+            localStorage.setItem(_k, _v)
+        },
 
-		lr: function(_k) {
-			// remove
-			localStorage.removeItem(_k)
-		},
+        lg: function(_k) {
+            // get
+            if (localStorage.hasOwnProperty(_k)) {
+                return localStorage.getItem(_k)
+            } else {
+                return false
+            }
+        },
 
-		lc: function(_k) {
-			// check if key exists in LS
-			if (localStorage.hasOwnProperty(_k)) {
-				return true
-			} else if (!localStorage.hasOwnProperty(_k)) {
-				return false
-			}
-		},
+        jls: function(_k, _v) {
+            // JSON set
+            localStorage.setItem(_k, JSON.stringify(_v))
+        },
 
-		lclr: function() {
-			// clear localStorage
-			localStorage.clear()
-		},
+        jlg: function(_k) {
+            // JSON get
+            if (localStorage.hasOwnProperty(_k)) {
+                return JSON.parse(localStorage.getItem(_k))
+            } else {
+                return false
+            }
+        },
 
-		lex: function() {
-			// export entire LS
-			return JSON.stringify(JSON.stringify(localStorage))
-		},
+        lr: function(_k) {
+            // remove
+            localStorage.removeItem(_k)
+        },
 
-		lim: function(_data) {
-			// import LS via data/string generated from lex() method.
-			_data = JSON.parse(_data)
-			Object.keys(_data).forEach(function(k) {
-				localStorage.setItem(k, _data[k])
-			})
-		},
+        lc: function(_k) {
+            // check if key exists in LS
+            if (localStorage.hasOwnProperty(_k)) {
+                return true
+            } else {
+                return false
+            }
+        },
 
-		// SESSION STORAGE
+        lclr: function() {
+            // clear localStorage
+            localStorage.clear()
+        },
 
-		ss: function(_k, _v) {
-			// set
-			sessionStorage.setItem(_k, _v)
-		},
+        lex: function() {
+            // export entire LS
+            return JSON.stringify(JSON.stringify(localStorage))
+        },
 
-		sg: function(_k) {
-			// get
-			return sessionStorage.getItem(_k)
-		},
+        lim: function(_data) {
+            // import LS via data/string generated from lex() method.
+            _data = JSON.parse(_data)
+            Object.keys(_data).forEach(function(k) {
+                localStorage.setItem(k, _data[k])
+            })
+        },
 
-		jss: function(_k, _v) {
-			// JSON set
-			sessionStorage.setItem(_k, JSON.stringify(_v))
-		},
+        lss: function(item) {
+            return _sizeHelper("ls", item ? item : null)
+        },
 
-		jsg: function(_k) {
-			// JSON get
-			return JSON.parse(sessionStorage.getItem(_k))
-		},
+        // SESSION STORAGE
 
-		sr: function(_k) {
-			// remove
-			sessionStorage.removeItem(_k)
-		},
+        ss: function(_k, _v) {
+            // set
+            sessionStorage.setItem(_k, _v)
+        },
 
-		sc: function(_k) {
-			// check if key exists in LS
-			if (sessionStorage.hasOwnProperty(_k)) {
-				return true
-			} else if (!sessionStorage.hasOwnProperty(_k)) {
-				return false
-			}
-		},
+        sg: function(_k) {
+            // get
+            if (sessionStorage.hasOwnProperty(_k)) {
+                return sessionStorage.getItem(_k)
+            } else {
+                return false
+            }
+        },
 
-		sclr: function() {
-			// clear sessionStorage
-			sessionStorage.clear()
-		},
+        jss: function(_k, _v) {
+            // JSON set
+            sessionStorage.setItem(_k, JSON.stringify(_v))
+        },
 
-		sex: function() {
-			// export entire SS
-			return JSON.stringify(JSON.stringify(sessionStorage))
-		},
+        jsg: function(_k) {
+            // JSON get
+            if (sessionStorage.hasOwnProperty(_k)) {
+                return JSON.parse(sessionStorage.getItem(_k))
+            } else {
+                return false
+            }
+        },
 
-		sim: function(_data) {
-			// import SS via data/string generated from sex() method.
-			_data = JSON.parse(_data)
-			Object.keys(_data).forEach(function(k) {
-				localStorage.setItem(k, _data[k])
-			})
-		},
+        sr: function(_k) {
+            // remove
+            sessionStorage.removeItem(_k)
+        },
 
-		// COMMON DATE / TIME FUNCTIONS (FOR CURRENT DATE ONLY)
+        sc: function(_k) {
+            // check if key exists in LS
+            if (sessionStorage.hasOwnProperty(_k)) {
+                return true
+            } else {
+                return false
+            }
+        },
 
-		m2d: function(_k) {
-			// ms to date
-			return (new Date(_k))
-		},
+        sclr: function() {
+            // clear sessionStorage
+            sessionStorage.clear()
+        },
 
-		gm: function() {
-			// get month
-			return new Date().getMonth()
-		},
+        sex: function() {
+            // export entire SS
+            return JSON.stringify(JSON.stringify(sessionStorage))
+        },
 
-		gy: function() {
-			// get year
-			return new Date().getFullYear()
-		},
+        sim: function(_data) {
+            // import SS via data/string generated from sex() method.
+            _data = JSON.parse(_data)
+            Object.keys(_data).forEach(function(k) {
+                localStorage.setItem(k, _data[k])
+            })
+        },
 
-		gdy: function() {
-			// get day
-			return new Date().getDay()
-		},
+        sss: function(item) {
+            return _sizeHelper("ss", item ? item : null)
+        },
 
-		gdt: function() {
-			// get date
-			return new Date().getDate()
-		},
+        // COMMON DATE / TIME FUNCTIONS (FOR CURRENT DATE ONLY)
 
-		gt: function() {
-			// get time in ms
-			return new Date().getTime()
-		},
+        gm: function() {
+            // get month
+            return new Date().getMonth()
+        },
 
-		w2m: function(time) {
-			// weeks in ms. (supplied in weeks)
-			return time * 7 * 24 * 60 * 60 * 1000
-		},
+        gy: function() {
+            // get year
+            return new Date().getFullYear()
+        },
 
-		d2m: function(time) {
-			// days in ms. (supplied in days)
-			return time * 24 * 60 * 60 * 1000
-		},
+        gdy: function() {
+            // get day
+            return new Date().getDay()
+        },
 
-		h2m: function(time) {
-			// hrs in ms. (supplied in hrs)
-			return time * 60 * 60 * 1000
-		},
+        gdt: function() {
+            // get date
+            return new Date().getDate()
+        },
 
-		m2m: function(time) {
-			// mins in ms. (supplied in mins)
-			return time * 60 * 1000
-		},
+        gt: function() {
+            // get time in ms
+            return Date().now()
+        },
 
-		s2m: function(time) {
-			// sec in ms. (supplied in sec)
-			return time * 1000
-		},
+        sd: function(days, _from) {
+            // subtract days
+            // returns date X no of days ago from present
+            // _from is in ms
+            if (_from) {
+                return new Date(_from - days * 24 * 60 * 60 * 1000)
+            } else {
+                return new Date(Date.now() - days * 24 * 60 * 60 * 1000)
+            }
+        },
 
-		// OTHER TOOLS
+        ad: function(days, _from) {
+            // add days
+            // returns date X no of days from present
+            if (_from) {
+                return new Date(_from + days * 24 * 60 * 60 * 1000)
+            } else {
+                return new Date(Date.now() + days * 24 * 60 * 60 * 1000)
+            }
+        },
 
-		pi: _pi,
+        // others to ms
+        w2m: function(time) {
+            // weeks in ms. (supplied in weeks)
+            return time * 7 * 24 * 60 * 60 * 1000
+        },
 
-		pf: function(_m) {
-			// parse float
-			return parseFloat(_m)
-		},
+        d2m: function(time) {
+            // days in ms. (supplied in days)
+            return time * 24 * 60 * 60 * 1000
+        },
 
-		ri: _ri,
+        h2m: function(time) {
+            // hrs in ms. (supplied in hrs)
+            return time * 60 * 60 * 1000
+        },
 
-		jp: function(_m) {
-			// JSON parse
-			return JSON.parse(_m)
-		},
+        m2m: function(time) {
+            // mins in ms. (supplied in mins)
+            return time * 60 * 1000
+        },
 
-		js: function(_m) {
-			// JSON stringify
-			return JSON.stringify(_m)
-		},
+        s2m: function(time) {
+            // sec in ms. (supplied in sec)
+            return time * 1000
+        },
 
-		b6e: function(_m) {
-			// b64 encode
-			return btoa(_m)
-		},
+        // ms to others
+        m2d: function(time) {
+            // ms in days
+            return time / (24 * 60 * 60 * 1000)
+        },
 
-		b6d: function(_m) {
-			// b64 decode
-			return atob(_m)
-		},
+        m2h: function(time) {
+            // ms to hrs
+            return time / (60 * 60 * 1000)
+        },
 
-		euc: function(_m) {
-			return encodeURIComponent(_m)
-		},
+        // OTHER TOOLS
 
-		eu: function(_m) {
-			return encodeURI(_m)
-		},
+        pi: _pi,
 
-		duc: function(_m) {
-			return decodeURIComponent(_m)
-		},
+        pf: function(_m) {
+            // parse float
+            return parseFloat(_m)
+        },
 
-		du: function(_m) {
-			return decodeURI(_m)
-		},
+        ri: _ri,
 
-		keyGen: _keyGen,
+        jp: function(_m) {
+            // JSON parse
+            return JSON.parse(_m)
+        },
 
-		gb: function() {
-			// generate random boolean "true" or "false"
-			return Math.random() >= 0.5
-		},
+        js: function(_m) {
+            // JSON stringify
+            return JSON.stringify(_m)
+        },
 
-		ts: function(_k) {
-			// convert to string
-			return _k.toString()
-		},
+        b6e: function(_m) {
+            // b64 encode
+            return btoa(_m)
+        },
 
-	}
+        b6d: function(_m) {
+            // b64 decode
+            return atob(_m)
+        },
+
+        euc: function(_m) {
+            return encodeURIComponent(_m)
+        },
+
+        eu: function(_m) {
+            return encodeURI(_m)
+        },
+
+        duc: function(_m) {
+            return decodeURIComponent(_m)
+        },
+
+        du: function(_m) {
+            return decodeURI(_m)
+        },
+
+        keyGen: _keyGen,
+
+        gb: function() {
+            // generate random boolean "true" or "false"
+            return Math.random() >= 0.5
+        },
+
+        ts: function(_k) {
+            // convert to string
+            return _k.toString()
+        },
+
+        isC: function(_k) {
+            return _k && typeof _k === "function"
+        },
+    }
 })()
