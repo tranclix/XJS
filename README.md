@@ -310,8 +310,6 @@ Add number of days to a given time (optional) or to present time. Can take 2 arg
 x.ad(numOfDays, fromTimeInMs)
 ```
 
-> 1545565982379
-
 **`w2m()`**
 
 Convert weeks into milliseconds.
