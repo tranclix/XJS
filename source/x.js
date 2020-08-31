@@ -44,24 +44,24 @@ export const x = (function() {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
 
-    function _keyGen(lengthOfKey, numberOfKeys, joinedByChar, typeOfKeys) {
+    function _keyGen(keyLength, keyAmount, joinedByChar, keyType) {
         /*
-        	@ lengthOfKey: 	(optional) length of single key. integer, default: 5
-        	@ numberOfKeys: (optional) how many keys to generate? default: 1
-        	@ joinedByChar: (optional) which char to use to join the keys with? default: null => returns an array of keys. otherwise joins them with the provided character.
-          	@ typeOfKeys:
-	        	00 => numbers only. ex: 04278
-	        	0a => numbers + small alphabets. ex: a67s3
-	        	0A => numbers + CAPITAL alphabets. ex: GH67A
-	        	aa => small alphabets only. ex: abywi
-	        	AA => CAPITAL alphabets only. ex: WISLK
-	        	aA => small + CAPITAL alphabets. ex: sAHnS
-	        	0aA => numbers + small + CAPITAL alphabets. ex: b6Hi8
+            @ keyLength:  (optional) length of single key. integer, default: 5
+            @ keyAmount: (optional) how many keys to generate? default: 1
+            @ joinedByChar: (optional) which char to use to join the keys with? default: null => returns an array of keys. otherwise joins them with the provided character.
+            @ keyType:
+                00 => numbers only. ex: 04278
+                0a => numbers + small alphabets. ex: a67s3
+                0A => numbers + CAPITAL alphabets. ex: GH67A
+                aa => small alphabets only. ex: abywi
+                AA => CAPITAL alphabets only. ex: WISLK
+                aA => small + CAPITAL alphabets. ex: sAHnS
+                0aA => numbers + small + CAPITAL alphabets. ex: b6Hi8
          */
 
-        typeOfKeys = typeOfKeys ? typeOfKeys : "0aA"
-        numberOfKeys = numberOfKeys ? numberOfKeys : 1
-        lengthOfKey = lengthOfKey ? lengthOfKey : 5
+        let typeOfKeys = keyType ? keyType : "0aA"
+        let numberOfKeys = keyAmount ? keyAmount : 1
+        let lengthOfKey = keyLength ? keyLength : 5
 
         let charSpace = [
             "A",
@@ -182,7 +182,8 @@ export const x = (function() {
         let type = where === "ls" ? localStorage : sessionStorage
 
         if (!item) {
-            let total = 0
+            let total = 0,
+                _x
             for (_x in type) {
                 if (!type.hasOwnProperty(_x)) {
                     continue
@@ -255,9 +256,9 @@ export const x = (function() {
 
         lim: function(_data) {
             // import LS via data/string generated from lex() method.
-            _data = JSON.parse(_data)
-            Object.keys(_data).forEach(function(k) {
-                localStorage.setItem(k, _data[k])
+            let d = JSON.parse(_data)
+            Object.keys(d).forEach(function(k) {
+                localStorage.setItem(k, d[k])
             })
         },
 
@@ -321,9 +322,9 @@ export const x = (function() {
 
         sim: function(_data) {
             // import SS via data/string generated from sex() method.
-            _data = JSON.parse(_data)
-            Object.keys(_data).forEach(function(k) {
-                localStorage.setItem(k, _data[k])
+            let d = JSON.parse(_data)
+            Object.keys(d).forEach(function(k) {
+                localStorage.setItem(k, d[k])
             })
         },
 
