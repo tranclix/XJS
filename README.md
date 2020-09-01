@@ -4,7 +4,7 @@
 
 # WHY
 
-To speed up and simplify your code writing. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gt()` than `(new Date).getTime()`? Or `x.cl(var)` than `console.log(var)`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
+To speed up and simplify your code writing. Isn't it just so much more convenient and faster to type `x.ls` than `localStorage.setItem`? Or to simply type `x.gy()` than `new Date().getFullYear()`? Once you get used to it, all of it becomes indispensable part of your projects. The purpose and aim of making this library was to make repetitive or frequently used code blocks much easier and faster to type. That is why the name 'X', because this letter is easily accessible.
 
 # TIPS
 
