@@ -356,7 +356,7 @@ export const x = (function() {
 
         gt: function() {
             // get time in ms
-            return Date().now()
+            return Date.now()
         },
 
         sd: function(days, _from) {
